@@ -7,6 +7,10 @@ class GeminiService {
   late final GenerativeModel _model;
 
   GeminiService() {
+    assert(
+      Apis.geminiKey.isNotEmpty,
+      'GEMINI_API_KEY not set. Run with: flutter run --dart-define=GEMINI_API_KEY=your_key',
+    );
     _model = GenerativeModel(model: 'gemini-2.5-flash', apiKey: Apis.geminiKey);
   }
 
